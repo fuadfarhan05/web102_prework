@@ -30,12 +30,19 @@ function addGamesToPage(games) {
     // loop over each item in the data
         games.forEach(game => {
             const gameCard = document.createElement('div');
+
+
             gameCard.classList.add("game-card");
 
             gameCard.innerHTML =
                 `<img src="${game.img}" alt="${game.name}" width="200" />
+
                 <h3>${game.name}</h3>
                 <p>${game.description}</p>
+
+
+
+
                 <p><strong>Pledged:</strong> $${game.pledged.toLocaleString()} / $${game.goal.toLocaleString()}</p>
                 <p><strong>Backers:</strong> ${game.backers.toLocaleString()}</p>
         `
@@ -78,6 +85,7 @@ const totalContributions = GAMES_JSON.reduce((total, game) => total + game.backe
 
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
+
 const totalRaised = GAMES_JSON.reduce((total, game) => total + game.pledged, 0);
 raisedCard.innerHTML = `$${totalRaised.toLocaleString()}`;
 // set inner HTML using template literal
